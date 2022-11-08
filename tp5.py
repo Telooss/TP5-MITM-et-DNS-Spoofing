@@ -1,13 +1,11 @@
-from scapy.all import *
+import scapy.all as scapy
+
+ans=scapy.srp(scapy.Ether(dst="ff:ff:ff:ff:ff:ff")/scapy.ARP(pdst="10.33.19.0/22"),timeout=2, iface="wlan0")
 
 
-TIMEOUT = 1
-conf.verb = 0
-for ip in range(0, 256):
-    packet = IP(dst="10.33.16." + str(ip), ttl=20)/ICMP()
-    reply = sr1(packet, timeout=TIMEOUT)
-    if not (reply is None):
-         print (reply.dst, "Online")
-    else:
-         print("Offline %s" % packet[IP].dst)
+
+
+for element in ans:
+        print("IP:{}".format(element[1].psrc))
+        print("MAC address: {}\n".format(element[1].hwsrc))
 
