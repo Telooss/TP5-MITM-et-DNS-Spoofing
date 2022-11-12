@@ -1,15 +1,17 @@
 import sys
 from datetime import datetime
-import scapy.all as scapy
+from scapy.all import srp,Ether,ARP,conf 
 
 
 
 print("[*] Scanning...") 
 start_time = datetime.now()
 
-scapy.conf.verb = 0 
-ans, unans = scapy.srp(scapy.Ether(dst="ff:ff:ff:ff:ff:ff")/scapy.ARP(pdst = "10.4.1.0/24"), timeout = 2, iface = "enp0s8", inter = 0.1)
-
+conf.verb = 0 
+ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst = 10.4.1.0/24), 
+	     timeout = 2, 
+	     iface = enp0s8,
+	     inter = 0.1)
 
 print ("\n[*] IP - MAC") 
 for snd,rcv in ans: 
