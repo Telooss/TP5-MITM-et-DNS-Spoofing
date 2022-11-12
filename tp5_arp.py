@@ -4,5 +4,5 @@ ans=scapy.srp(scapy.Ether(dst="ff:ff:ff:ff:ff:ff")/scapy.ARP(pdst="10.1.4.0/24")
 
 if ans:
     for element in ans:
-        print("IP:{}".format(element))
+        print("IP: {}".format(element))
         print("MAC address: {}\n".format(element))
