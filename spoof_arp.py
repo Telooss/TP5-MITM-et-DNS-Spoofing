@@ -14,6 +14,7 @@ def ARP_Spoof(Network = str):
     print("[*] Scan en cours [...]") 
 
     scapy.conf.verb = 0 
+    
     ans= scapy.srp(scapy.Ether(dst="ff:ff:ff:ff:ff:ff")/scapy.ARP(pdst = Network), timeout = 2, inter = 0.1) # Scan ARP pour récupérer les adresses
     
     print ("\n[*] IP - MAC") 
