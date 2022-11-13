@@ -3,6 +3,7 @@ import scapy.all as scapy
 
 def ARP_Spoof(Network = str):
     assert Network != str, "Network n'est pas une string"
+    
     """
     Veuillez précisez si le masque est en /22 ou /24. Exemple d'ip : 10.10.10.0/24.
     """
