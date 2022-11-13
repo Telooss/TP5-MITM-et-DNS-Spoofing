@@ -15,7 +15,7 @@ def ARP_Spoof(Network = str):
 
     frame = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
 
-    arp_packet = frame/scapy.ARP(pdst=a)
+    arp_packet = frame/scapy.ARP(pdst=Network)
 
 
     ans = scapy.srp(arp_packet, timeout=2)
