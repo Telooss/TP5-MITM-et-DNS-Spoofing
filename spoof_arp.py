@@ -1,7 +1,12 @@
 import scapy.all as scapy
 
 
-def ARP_Spoof(IP):
+def ARP_Spoof(Network = str):
+    µ
+    assert Network != str, "Network n'est pas une string"
+    """
+    Veuillez précisez si le masque est en /22 ou /24. Exemple d'ip : 10.10.10.0/24.
+    """
 
     MAC = [] #Variable de stockage des adresses MAC
     IP = [] #Variable de stockage des adresses IP
@@ -9,7 +14,7 @@ def ARP_Spoof(IP):
     print("[*] Scan en cours [...]") 
 
     scapy.conf.verb = 0 
-    ans= scapy.srp(scapy.Ether(dst="ff:ff:ff:ff:ff:ff")/scapy.ARP(pdst = "192.168.1.0/24"), timeout = 2, inter = 0.1) # Scan ARP pour récupérer les adresses
+    ans= scapy.srp(scapy.Ether(dst="ff:ff:ff:ff:ff:ff")/scapy.ARP(pdst = Network), timeout = 2, inter = 0.1) # Scan ARP pour récupérer les adresses
     
     print ("\n[*] IP - MAC") 
 
