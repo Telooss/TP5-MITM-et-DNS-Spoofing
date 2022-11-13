@@ -20,8 +20,8 @@ def ARP_Spoof(Network = str):
     print ("\n[*] IP - MAC") 
 
     for i in range(len(ans)): # Stock des adresses MAC et IP
-        MAC.append(ans[i][1].hwsrc)
-        IP.append(ans[i][1].psrc)
+        MAC.append(ans[i][0].hwsrc)
+        IP.append(ans[i][0].psrc)
 
     print("\n[*] Scan fini" + "\n[*] Résultat :" + "\n ADRESSES MAC :", MAC + "\n ADRESSES IP :", IP )
 
