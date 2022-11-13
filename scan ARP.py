@@ -1,4 +1,3 @@
-import sys
 import scapy.all as scapy
 
 
